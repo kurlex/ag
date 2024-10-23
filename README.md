@@ -1,3 +1,7 @@
+# Link to Demo
+
+[Demo](https://kurlex.github.io/ag/)
+
 # Step 1: Select the dimensions
 
 ![alt text](./public/dim.png)
