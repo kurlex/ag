@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# Step 1: Select the dimensions
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![alt text](./public/dim.png)
 
-## Available Scripts
+# Step 2: Select your starting point
 
-In the project directory, you can run:
+![alt text](./public/start.png)
 
-### `npm start`
+# Step 3: Select your target
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![alt text](./public/goal.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Step 4: Add some boundries
 
-### `npm test`
+![alt text](./public/block.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Step 5: Find Path
 
-### `npm run build`
+![alt text](https://github.com/user-attachments/assets/9bcc356d-02a9-4cf2-a9e7-dc3e28e77084)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Initial Generation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- all candidates starts from the starting point
+- all candidates will take the same number of steps which is egal to 3 \* max(number of columns, number of rows)
+- the initials steps are randomly generated
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Iterations
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. each candidate takes all the steps
+2. if one candidate reach the goal we stop and print it's path otherwise we continue
+3. candidates are sorted then based on their closeness to the goal, the top 50% will be kept while the rest are discarded
+4. for each two consicitive pairs we generate two childs as follows:
+   1. choose a random number n
+   2. split the parents path into n non necessairy equal sub path is such a way that the length of i_th path of the first parent equals to the second parents
+   3. the first child will get the first chunk from the first parent then the second chunk from the second parent and so on
+   4. the second child will do the same, but it's start with the second parent
+5. 10% of the child's steps get mutated (randomly changed)
