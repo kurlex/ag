@@ -1,3 +1,7 @@
+#root {
+  height: 100%;
+}
+
 .App {
   text-align: center;
 }
@@ -26,6 +30,29 @@
 
 .App-link {
   color: #61dafb;
+}
+
+/* Pagination Container */
+.pagination-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Next Button Styling */
+.next-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+/* Hover Effect for Button */
+.next-button:hover {
+  background-color: #0056b3;
 }
 
 @keyframes App-logo-spin {
