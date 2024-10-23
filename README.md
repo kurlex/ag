@@ -16,7 +16,7 @@
 
 # Step 5: Find Path
 
-![alt text](https://github.com/user-attachments/assets/9bcc356d-02a9-4cf2-a9e7-dc3e28e77084)
+https://github.com/user-attachments/assets/9bcc356d-02a9-4cf2-a9e7-dc3e28e77084
 
 ## Initial Generation
 
